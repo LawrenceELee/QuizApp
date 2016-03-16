@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="hello_world">Hello, world!</string>
+    <string name="question_text">Washington D.C. is the capital of the United States.</string>
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+</resources>

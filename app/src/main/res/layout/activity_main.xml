@@ -48,27 +48,40 @@
 
         <!--
         drawableLeft places image left of the text.
-        -->
-        <Button
-            android:id="@+id/previous_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        ImageButton
+
+        The below is no longer needed for an ImageButton
             android:text="@string/previous_button"
             android:drawableLeft="@drawable/arrow_left"
             android:paddingLeft="4dp"
+
+        contentDescription is used for accessibility for low-vision readers
+        -->
+        <ImageButton
+            android:id="@+id/previous_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Previous Question"
+            android:src="@drawable/arrow_left"
             />
 
         <!--
         drawableRight=... allows putting a picture of a "right pointing arrow" instead of "Next" text
         drawableRight places image to the right of the text.
-        -->
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        The below is no longer needed for an ImageButton
             android:text="@string/next_button"
             android:drawableRight="@drawable/arrow_right"
             android:paddingRight="4dp"
+
+        contentDescription is used for accessibility for low-vision readers
+        -->
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Next Question"
+            android:src="@drawable/arrow_right"
             />
 
     </LinearLayout>

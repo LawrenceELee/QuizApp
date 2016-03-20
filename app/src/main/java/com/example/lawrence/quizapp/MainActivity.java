@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private Button mPrevButton;
     private TextView mQuestionTextView;
 
     // the "database" for the model
@@ -92,6 +93,8 @@ public class MainActivity extends Activity {
         // inflate the text view
         // challenge 1: implement functionality to refresh question when tap on the text view
         // we can do this b/c TextView is a subclass of View. Just like Button is a subclass of View.
+        // the modulus operator is so that questions will roll back to the
+        // beginning when user reaches the last question. Otherwise the app will crash because of index out of bounds exception.
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -110,6 +113,18 @@ public class MainActivity extends Activity {
                 updateQuestion();
             }
         });
+
+        // go back to previous question
+        mPrevButton = (Button) findViewById(R.id.previous_button);
+        mPrevButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                mCurrentIdx = (mCurrentIdx - 1) % mQuestionBank.length;
+                updateQuestion();
+            }
+        });
+
+
 
         // get the first question
         updateQuestion();
@@ -133,6 +148,11 @@ public class MainActivity extends Activity {
 
     // refactor code to get new question and update view into it's own method.
     private void updateQuestion(){
+
+        // this makes it so that Prev rolls backward to the last question if user
+        // click prev on the first question. Without this, pressing it would cause app to crash.
+        if( mCurrentIdx < 0 )  mCurrentIdx = mQuestionBank.length-1;
+
         int question = mQuestionBank[mCurrentIdx].getQuestion();
         mQuestionTextView.setText(question);
     }

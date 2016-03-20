@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
-    tools:context="com.example.lawrence.quizapp.MainActivity" >
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context="com.example.lawrence.quizapp.MainActivity"
+    >
 
     <TextView
         android:id="@+id/question_text_view"
@@ -18,7 +20,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+
+        >
 
         <Button
             android:id="@+id/true_button"
@@ -36,17 +40,39 @@
 
     </LinearLayout>
 
-    <!--
-    drawableRight=... allows putting a picture of a "right pointing arrow" instead of "Next" text
-    -->
-    <Button
-        android:id="@+id/next_button"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_button"
-        android:drawableRight="@drawable/arrow_right"
-        android:paddingRight="4dp"
-    />
+        >
+
+        <!--
+        drawableLeft places image left of the text.
+        -->
+        <Button
+            android:id="@+id/previous_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/previous_button"
+            android:drawableLeft="@drawable/arrow_left"
+            android:paddingLeft="4dp"
+            />
+
+        <!--
+        drawableRight=... allows putting a picture of a "right pointing arrow" instead of "Next" text
+        drawableRight places image to the right of the text.
+        -->
+        <Button
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next_button"
+            android:drawableRight="@drawable/arrow_right"
+            android:paddingRight="4dp"
+            />
+
+    </LinearLayout>
+
 
 
 </LinearLayout>
